@@ -1,51 +1,69 @@
 import React from "react";
-import { Formik, Form, Field } from "formik";
+import { Formik, Field, Form, ErrorMessage } from "formik";
 import * as Yup from "yup";
 
-const SignupSchema = Yup.object().shape({
-  firstName: Yup.string()
-    .min(2, "Too Short!")
-    .max(50, "Too Long!")
+const Schema = Yup.object().shape({
+  employmentStatus: Yup.string()
+    .min(2, "Must be longer than 2 characters")
+    .max(20, "Nice try, nobody has a first name that long")
     .required("Required"),
-  lastName: Yup.string()
-    .min(2, "Too Short!")
-    .max(50, "Too Long!")
-    .required("Required"),
-  email: Yup.string()
-    .email("Invalid email")
+  annualIncome: Yup.string()
+    .min(2, "Must be longer than 2 characters")
+    .max(20, "Nice try, nobody has a last name that long")
     .required("Required"),
 });
 
-export const QualificationForm = () => (
-  <div>
-    <h1>Signup</h1>
-    <Formik
-      initialValues={{
-        firstName: "",
-        lastName: "",
-        email: "",
-      }}
-      validationSchema={SignupSchema}
-      onSubmit={values => {
-        // same shape as initial values
-        console.log(values);
-      }}
-    >
-      {({ errors, touched }) => (
-        <Form>
-          <Field name="firstName" />
-          {errors.firstName && touched.firstName ? (
-            <div>{errors.firstName}</div>
-          ) : null}
-          <Field name="lastName" />
-          {errors.lastName && touched.lastName ? (
-            <div>{errors.lastName}</div>
-          ) : null}
-          <Field name="email" type="email" />
-          {errors.email && touched.email ? <div>{errors.email}</div> : null}
-          <button type="submit">Submit</button>
-        </Form>
-      )}
-    </Formik>
-  </div>
-);
+const onSubmit = history => history.push("/select-cards");
+
+export const QualificationForm = props => {
+  console.log(props);
+  return (
+    <div>
+      <h1>Sign up</h1>
+      <Formik
+        initialValues={{
+          email: "",
+          employmentStatus: "",
+          annualIncome: "",
+        }}
+        validationSchema={Schema}
+        onSubmit={values => {
+          setTimeout(() => {
+            alert(JSON.stringify(values, null, 2));
+          }, 500);
+          console.log(props.setUserQualificationDetails);
+          props.setUserQualificationDetails(values);
+          props.history.push("/select-card");
+        }}
+        render={({ errors, touched, isValid }) => (
+          <Form>
+            <label htmlFor="employmentStatus">Employment Status</label>
+            <Field name="employmentStatus" placeholder="Jane" type="text" />
+
+            <ErrorMessage
+              name="employmentStatus"
+              component="div"
+              className="field-error"
+            />
+
+            <label htmlFor="annualIncome">Annual Income</label>
+            <Field name="annualIncome" placeholder="Doe" type="text" />
+            <ErrorMessage
+              name="annualIncome"
+              component="div"
+              className="field-error"
+            />
+
+            <button
+              type="submit"
+              onSubmit={() => onSubmit(props.history)}
+              disabled={!isValid}
+            >
+              Submit
+            </button>
+          </Form>
+        )}
+      />
+    </div>
+  );
+};
