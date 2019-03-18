@@ -1,5 +1,5 @@
 import React from "react";
-import { Formik, Form } from "formik";
+import { Formik, Form, Field } from "formik";
 import * as Yup from "yup";
 import {
   FormGrid,
@@ -9,6 +9,8 @@ import {
   Input,
   Label,
   Select,
+  ErrorMessage,
+  MarketingHeader,
 } from "./styles/styles";
 
 const Schema = Yup.object().shape({
@@ -39,7 +41,7 @@ export const QualificationForm = ({ setUserQualificationDetails, history }) => {
         </BenefitsList>
       </FormContent>
       <FormQuestions>
-        <h1>Sign up</h1>
+        <MarketingHeader>Sign up</MarketingHeader>
         <Formik
           initialValues={{
             email: "",
@@ -51,43 +53,49 @@ export const QualificationForm = ({ setUserQualificationDetails, history }) => {
             setUserQualificationDetails(values);
             history.push("/select-card");
           }}
-          render={({ errors, touched, isValid, handleChange }) => (
+          render={({ errors, touched, isValid, handleChange, handleBlur }) => (
             <Form>
-              <Label htmlFor="employmentStatus">Employment Status</Label>
-
-              <Select
-                onChange={handleChange}
-                name="employmentStatus"
-                placeholder="Employed"
-                type="text"
-              >
-                <option value="">--Please choose an option--</option>
-                <option value="full time employment">
-                  Full Time Employment
-                </option>
-                <option value="Part Time Employment">
-                  Part Time Employment
-                </option>
-                <option value="student">Student</option>
-                <option value="self employed">Self Employed</option>
-                <option value="pensioner">Pensioner</option>
-                <option value="unemployed">Unemployed</option>
-                <option value="other">Other</option>
-              </Select>
+              <Label htmlFor="employmentStatus">
+                Employment Status
+                <Select
+                  onChange={handleChange}
+                  name="employmentStatus"
+                  placeholder="Employed"
+                  type="text"
+                >
+                  <option value="">--Please choose an option--</option>
+                  <option value="full time employment">
+                    Full Time Employment
+                  </option>
+                  <option value="Part Time Employment">
+                    Part Time Employment
+                  </option>
+                  <option value="student">Student</option>
+                  <option value="self employed">Self Employed</option>
+                  <option value="pensioner">Pensioner</option>
+                  <option value="unemployed">Unemployed</option>
+                  <option value="other">Other</option>
+                </Select>
+              </Label>
+              <Label htmlFor="annualIncome">
+                Annual Income
+                <br />
+                <Field
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  name="annualIncome"
+                  id="annualIncome"
+                  placeholder="10,000"
+                  type="text"
+                  autocomplete="off"
+                  component={Input}
+                  error={errors.annualIncome && touched.annualIncome}
+                />
+                {errors.annualIncome && touched.annualIncome ? (
+                  <ErrorMessage>{errors.annualIncome}</ErrorMessage>
+                ) : null}
+              </Label>
               <br />
-              <br />
-              <Label htmlFor="annualIncome">Annual Income</Label>
-              <br />
-              <Input
-                onChange={handleChange}
-                name="annualIncome"
-                placeholder="10,000"
-                type="text"
-                autocomplete="off"
-              />
-              <br />
-              <br />
-
               <button
                 type="submit"
                 onSubmit={() => onSubmit()}
