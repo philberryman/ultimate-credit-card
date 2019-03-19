@@ -13,7 +13,7 @@ import { Wrapper, Content, Header } from "./styles/styles";
 const App = () => {
   const [selectedCard, setSelectedCard] = useState({});
   const [userQualificationDetails, setUserQualificationDetails] = useState({});
-  const [decision, setDecision] = useState({});
+  const [decision, setDecision] = useState();
 
   const checkIfAccepted = userPersonalDetails => {
     checkApplicationOnServer(
