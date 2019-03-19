@@ -4,6 +4,8 @@ import "./App.css";
 import { QualificationForm } from "./QualificationForm";
 import { AvailableCards } from "./AvailableCards";
 import { SelectedCard } from "./SelectedCard";
+import { Decision } from "./Decision";
+
 import { checkApplicationOnServer } from "./lib/fetch";
 
 import { Wrapper, Content, Header } from "./styles/styles";
@@ -11,13 +13,14 @@ import { Wrapper, Content, Header } from "./styles/styles";
 const App = () => {
   const [selectedCard, setSelectedCard] = useState({});
   const [userQualificationDetails, setUserQualificationDetails] = useState({});
+  const [decision, setDecision] = useState({});
 
   const checkIfAccepted = userPersonalDetails => {
     checkApplicationOnServer(
       selectedCard,
       userQualificationDetails,
       userPersonalDetails
-    );
+    ).then(response => setDecision(response));
   };
 
   return (
@@ -45,6 +48,10 @@ const App = () => {
                   checkIfAccepted={checkIfAccepted}
                 />
               )}
+            />
+            <Route
+              path="/decision"
+              render={props => <Decision {...props} decision={decision} />}
             />
             <Route
               path="/"
