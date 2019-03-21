@@ -114,7 +114,18 @@
 69
 70
 71
-72</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -131,17 +142,19 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -158,7 +171,10 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -178,6 +194,8 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -195,6 +213,8 @@ import {
   CardFact,
   CardData,
   CardLabel,
+  PoseCardContainer,
+  PoseCard,
 } from "../styles/styles";
 &nbsp;
 export const AvailableCards = ({
@@ -213,47 +233,54 @@ export const AvailableCards = ({
   };
 &nbsp;
   return (
-    &lt;Cards&gt;
-      &lt;Card&gt;
-        &lt;CardName&gt;Your Results&lt;/CardName&gt;
-        &lt;CardFact&gt;
-          &lt;CardLabel&gt;Cards Available : &lt;/CardLabel&gt;
-          &lt;CardData&gt;{cards.length}&lt;/CardData&gt;
-        &lt;/CardFact&gt;
-        &lt;CardFact&gt;
-          &lt;CardLabel&gt;Credit Available : &lt;/CardLabel&gt;
-          &lt;CardData&gt;{totalCredit}&lt;/CardData&gt;
-        &lt;/CardFact&gt;
-        &lt;button onClick={<span class="fstat-no" title="function not covered" >()</span> =&gt; <span class="cstat-no" title="statement not covered" >history.push("/")}</span>&gt;
-          Go Back // Search Again
-        &lt;/button&gt;
-      &lt;/Card&gt;
-      {cards.map(card =&gt; (
-        &lt;Card key={card.name}&gt;
-          &lt;CardName&gt;{card.name}&lt;/CardName&gt;
-          &lt;CardDetails&gt;{card.details}&lt;/CardDetails&gt;
-          &lt;CardFact&gt;
-            &lt;CardLabel&gt;APR : &lt;/CardLabel&gt;
-            &lt;CardData&gt;{card.apr}&lt;/CardData&gt;
-          &lt;/CardFact&gt;
-          &lt;CardFact&gt;
-            &lt;CardLabel&gt;Credit Available :&lt;/CardLabel&gt;{" "}
-            &lt;CardData&gt;{card.creditAvailable}&lt;/CardData&gt;
-          &lt;/CardFact&gt;
-          &lt;CardFact&gt;
-            &lt;CardLabel&gt;Balance Transfer Offer (months) :&lt;/CardLabel&gt;{" "}
-            &lt;CardData&gt;{card.balanceTransferOfferMonths}&lt;/CardData&gt;
-          &lt;/CardFact&gt;
-          &lt;CardFact&gt;
-            &lt;CardLabel&gt;Purchase Offer Duration (months) : &lt;/CardLabel&gt;
-            &lt;CardData&gt;{card.purchaseOfferMonths}&lt;/CardData&gt;
-          &lt;/CardFact&gt;
-          &lt;button onClick={() =&gt; selectCardAndNext(card)}&gt;
-            Select This Card{" "}
-          &lt;/button&gt;
-        &lt;/Card&gt;
-      ))}
-    &lt;/Cards&gt;
+    &lt;PoseCardContainer&gt;
+      &lt;Cards&gt;
+        &lt;PoseCard key={"results"}&gt;
+          &lt;Card results={true}&gt;
+            &lt;CardName&gt;Your Results&lt;/CardName&gt;
+            &lt;CardFact&gt;
+              &lt;CardLabel&gt;Cards Available : &lt;/CardLabel&gt;
+              &lt;CardData&gt;{cards.length}&lt;/CardData&gt;
+            &lt;/CardFact&gt;
+            &lt;CardFact&gt;
+              &lt;CardLabel&gt;Credit Available : &lt;/CardLabel&gt;
+              &lt;CardData&gt;{totalCredit}&lt;/CardData&gt;
+            &lt;/CardFact&gt;
+            &lt;button onClick={<span class="fstat-no" title="function not covered" >()</span> =&gt; <span class="cstat-no" title="statement not covered" >history.push("/")}</span>&gt;
+              Go Back // Search Again
+            &lt;/button&gt;
+          &lt;/Card&gt;
+        &lt;/PoseCard&gt;
+&nbsp;
+        {cards.map(card =&gt; (
+          &lt;PoseCard key={card.name}&gt;
+            &lt;Card&gt;
+              &lt;CardName&gt;{card.name}&lt;/CardName&gt;
+              &lt;CardDetails&gt;{card.details}&lt;/CardDetails&gt;
+              &lt;CardFact&gt;
+                &lt;CardLabel&gt;APR : &lt;/CardLabel&gt;
+                &lt;CardData&gt;{card.apr}&lt;/CardData&gt;
+              &lt;/CardFact&gt;
+              &lt;CardFact&gt;
+                &lt;CardLabel&gt;Credit Available :&lt;/CardLabel&gt;{" "}
+                &lt;CardData&gt;{card.creditAvailable}&lt;/CardData&gt;
+              &lt;/CardFact&gt;
+              &lt;CardFact&gt;
+                &lt;CardLabel&gt;Balance Transfer Offer (months) :&lt;/CardLabel&gt;{" "}
+                &lt;CardData&gt;{card.balanceTransferOfferMonths}&lt;/CardData&gt;
+              &lt;/CardFact&gt;
+              &lt;CardFact&gt;
+                &lt;CardLabel&gt;Purchase Offer Duration (months) : &lt;/CardLabel&gt;
+                &lt;CardData&gt;{card.purchaseOfferMonths}&lt;/CardData&gt;
+              &lt;/CardFact&gt;
+              &lt;button onClick={() =&gt; selectCardAndNext(card)}&gt;
+                Select This Card{" "}
+              &lt;/button&gt;
+            &lt;/Card&gt;
+          &lt;/PoseCard&gt;
+        ))}
+      &lt;/Cards&gt;
+    &lt;/PoseCardContainer&gt;
   );
 };
 &nbsp;</pre></td></tr>
@@ -262,7 +289,7 @@ export const AvailableCards = ({
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Thu Mar 21 2019 01:32:33 GMT+0000 (Greenwich Mean Time)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Thu Mar 21 2019 15:00:09 GMT+0000 (Greenwich Mean Time)
 </div>
 </div>
 <script src="../prettify.js"></script>

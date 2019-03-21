@@ -20,9 +20,9 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">75% </span>
+        <span class="strong">78.57% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>9/12</span>
+        <span class='fraction'>11/14</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
@@ -30,14 +30,14 @@
         <span class='fraction'>0/0</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">57.14% </span>
+        <span class="strong">62.5% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>4/7</span>
+        <span class='fraction'>5/8</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">75% </span>
+        <span class="strong">78.57% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>9/12</span>
+        <span class='fraction'>11/14</span>
       </div>
     </div>
   </div>
@@ -112,13 +112,44 @@
 67
 68
 69
-70</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -143,9 +174,14 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">9x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -164,12 +200,26 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -184,6 +234,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import React, { useState } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { checkApplicationOnServer } from "../lib/fetch";
+import posed, { PoseGroup } from "react-pose";
 &nbsp;
 import { QualificationForm } from "./QualificationForm";
 import { AvailableCards } from "./AvailableCards";
@@ -191,6 +242,11 @@ import { SelectedCard } from "./SelectedCard";
 import { Decision } from "./Decision";
 &nbsp;
 import { Wrapper, Content, Header } from "../styles/styles";
+&nbsp;
+const RouteContainer = posed.div({
+  enter: { opacity: 1, delay: 300, beforeChildren: true },
+  exit: { opacity: 0 },
+});
 &nbsp;
 export const App = () =&gt; {
   const [selectedCard, setSelectedCard] = useState({});
@@ -206,48 +262,67 @@ export const App = () =&gt; {
   };
 &nbsp;
   return (
-    &lt;Wrapper&gt;
-      &lt;Content&gt;
-        &lt;Header&gt;ULTIMATE CREDIT CARD FINDER&lt;/Header&gt;
-        &lt;Router&gt;
-          &lt;Switch&gt;
-            &lt;Route
-              path="/select-card"
-              render={props =&gt; (
-                &lt;AvailableCards
-                  {...props}
-                  userQualificationDetails={userQualificationDetails}
-                  setSelectedCard={setSelectedCard}
-                /&gt;
-              )}
-            /&gt;
-            &lt;Route
-              path="/selected-card"
-              render={props =&gt; (
-                &lt;SelectedCard
-                  {...props}
-                  card={selectedCard}
-                  checkIfAccepted={checkIfAccepted}
-                /&gt;
-              )}
-            /&gt;
-            &lt;Route
-              path="/decision"
-              render={<span class="fstat-no" title="function not covered" >pr</span>ops =&gt; <span class="cstat-no" title="statement not covered" >&lt;Decision {...props} decision={decision} /&gt;}</span>
-            /&gt;
-            &lt;Route
-              path="/"
-              render={props =&gt; (
-                &lt;QualificationForm
-                  {...props}
-                  setUserQualificationDetails={setUserQualificationDetails}
-                /&gt;
-              )}
-            /&gt;
-          &lt;/Switch&gt;
-        &lt;/Router&gt;
-      &lt;/Content&gt;
-    &lt;/Wrapper&gt;
+    &lt;Router&gt;
+      &lt;Wrapper&gt;
+        &lt;Content&gt;
+          &lt;Header&gt;ULTIMATE CREDIT CARD FINDER&lt;/Header&gt;
+          &lt;Route
+            render={({ location }) =&gt; (
+              &lt;PoseGroup&gt;
+                &lt;RouteContainer key={location.pathname}&gt;
+                  &lt;Switch location={location}&gt;
+                    &lt;Route
+                      path="/select-card"
+                      render={props =&gt; (
+                        &lt;AvailableCards
+                          {...props}
+                          userQualificationDetails={userQualificationDetails}
+                          setSelectedCard={setSelectedCard}
+                          key="select-card"
+                        /&gt;
+                      )}
+                    /&gt;
+                    &lt;Route
+                      path="/selected-card"
+                      render={props =&gt; (
+                        &lt;SelectedCard
+                          {...props}
+                          card={selectedCard}
+                          checkIfAccepted={checkIfAccepted}
+                          key="selected-card"
+                        /&gt;
+                      )}
+                    /&gt;
+                    &lt;Route
+                      path="/decision"
+                      render={<span class="fstat-no" title="function not covered" >pr</span>ops =&gt; (
+<span class="cstat-no" title="statement not covered" >                        &lt;Decision</span>
+                          {...props}
+                          decision={decision}
+                          key="decision"
+                        /&gt;
+                      )}
+                    /&gt;
+                    &lt;Route
+                      path="/"
+                      render={props =&gt; (
+                        &lt;QualificationForm
+                          {...props}
+                          setUserQualificationDetails={
+                            setUserQualificationDetails
+                          }
+                          key="home"
+                        /&gt;
+                      )}
+                    /&gt;
+                  &lt;/Switch&gt;
+                &lt;/RouteContainer&gt;
+              &lt;/PoseGroup&gt;
+            )}
+          /&gt;
+        &lt;/Content&gt;
+      &lt;/Wrapper&gt;
+    &lt;/Router&gt;
   );
 };
 &nbsp;</pre></td></tr>
@@ -256,7 +331,7 @@ export const App = () =&gt; {
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Thu Mar 21 2019 01:32:33 GMT+0000 (Greenwich Mean Time)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Thu Mar 21 2019 15:00:09 GMT+0000 (Greenwich Mean Time)
 </div>
 </div>
 <script src="../prettify.js"></script>

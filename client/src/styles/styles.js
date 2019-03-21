@@ -168,4 +168,5 @@ export const CardData = styled.div`
 export const MarketingHeader = styled.h1`
   padding: 0;
   margin: 0 0 20px 0;
+  text-align: center;
 `;

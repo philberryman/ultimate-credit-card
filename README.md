@@ -70,6 +70,7 @@ As the warning does not stop tests from running and passing I've decided to igno
 
 - React (16.8.4) -- needed for the slightly unnecessary use of Hooks
 - Formik (for forms - handles state, validation, errors)
+- Yup - validation schema
 - Styled Components
 - Jest
 - React Testing Library

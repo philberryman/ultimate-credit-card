@@ -31,7 +31,7 @@ export const AvailableCards = ({
     <PoseCardContainer>
       <Cards>
         <PoseCard key={"results"}>
-          <Card results={true}>
+          <Card results="true">
             <CardName>Your Results</CardName>
             <CardFact>
               <CardLabel>Cards Available : </CardLabel>

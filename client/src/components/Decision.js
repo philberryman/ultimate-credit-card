@@ -3,12 +3,13 @@ import React from "react";
 import { FormGrid } from "../styles/styles";
 
 export const Decision = ({ decision }) => {
+  console.log(decision);
   if (decision) {
     return (
       <FormGrid>
         {decision.status === "Verified" && (
           <>
-            Congratualtions - your application for {decision.card.name} has been
+            Congratulations - your application for {decision.card.name} has been
             accepted.
             <br />
             <br />
