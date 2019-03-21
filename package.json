@@ -8,6 +8,7 @@
     "joi": "^14.3.1"
   },
   "scripts": {
-    "build": "cp -a client/src/lib/ ./src & babel src -d lib"
+    "build": "cp -a client/src/lib/ ./src & babel src -d lib",
+    "start": "cp -a client/src/lib/ ./src & babel src -d lib && node server.js"
   }
 }
