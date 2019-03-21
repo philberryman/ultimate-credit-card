@@ -20,9 +20,16 @@ https://github.com/philberryman/ultimate-credit-card.git
 
 Install and run using Yarn
 
+Server
+
 ```
 yarn install
 yarn start
+```
+
+Client (in new terminal)
+
+```
 cd client
 yarn install
 yarn start
