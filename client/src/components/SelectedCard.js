@@ -76,6 +76,9 @@ export const SelectedCard = ({
           <CardLabel>Purchase Offer Duration (months) : </CardLabel>
           <CardData>{card.purchaseOfferMonths}</CardData>
         </CardFact>
+        <button onClick={() => history.push("/select-card")}>
+          Go Back to Results
+        </button>
       </Card>
       <FormQuestions>
         <MarketingHeader>

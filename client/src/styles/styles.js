@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import posed from "react-pose";
 
 export const Wrapper = styled.div`
   display: flex;
@@ -86,7 +87,6 @@ export const Label = styled.label`
 
 export const FormError = styled.div`
   font-family: "Overpass", sans-serif;
-
   color: #dfa33b;
   font-size: 0.7rem;
   font-weight: bold;
@@ -105,6 +105,15 @@ export const BenefitsList = styled.ul`
   list-style: square;
 `;
 
+export const PoseCardContainer = posed.div({
+  enter: { staggerChildren: 150 },
+});
+
+export const PoseCard = posed.div({
+  enter: { x: 0, opacity: 1 },
+  exit: { x: 50, opacity: 0 },
+});
+
 export const Cards = styled.ul`
   display: flex;
   flex-wrap: wrap;
@@ -115,10 +124,10 @@ export const Cards = styled.ul`
 
 export const Card = styled.li`
   list-style: none;
-  min-height: 220px;
+  height: 250px;
   width: 180px;
   border: 2px solid #ffffff;
-  background: #6992cb;
+  background: ${props => (props.results ? "#94ac5a" : "#6992cb")};
   padding: 25px;
   margin: 10px;
   padding: 10px;

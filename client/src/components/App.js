@@ -11,7 +11,7 @@ import { Decision } from "./Decision";
 import { Wrapper, Content, Header } from "../styles/styles";
 
 const RouteContainer = posed.div({
-  enter: { opacity: 1 },
+  enter: { opacity: 1, delay: 300, beforeChildren: true },
   exit: { opacity: 0 },
 });
 

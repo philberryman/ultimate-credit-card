@@ -72,5 +72,5 @@ As the warning does not stop tests from running and passing I've decided to igno
 ### Future Improvements
 
 - Styling is a long way from perfect.
-- Better test coverage. Quite a minimal set of assetions are being made. One of the tests ended up being more e2e as wellso this should be refactored to either be a unit test or named as such as an e2e test.
+- Better test coverage. Quite a minimal set of assertions are being made. One of the tests ended up being more e2e as wellso this should be refactored to either be a unit test or named as such as an e2e test.
 - The warnings mentioned above when tests are run.It seems like these aren't a real problem and would probably not exist if Hooks weren't being used (although more investigation is probably needed here).
