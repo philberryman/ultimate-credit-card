@@ -18,7 +18,7 @@ import {
 const Schema = Yup.object().shape({
   employmentStatus: Yup.string()
     .min(2, "Must be longer than 2 characters")
-    .max(20, "Nice try, nobody has a first name that long")
+    .max(20, "too long")
     .required("Required"),
   annualIncome: Yup.string().required("Required"),
 });
