@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1553180409489" clover="3.2.0">
-  <project timestamp="1553180409490" name="All files">
-    <metrics statements="109" coveredstatements="95" conditionals="64" coveredconditionals="39" methods="42" coveredmethods="29" elements="215" coveredelements="163" complexity="0" loc="109" ncloc="109" packages="3" files="9" classes="9">
+<coverage generated="1553613287426" clover="3.2.0">
+  <project timestamp="1553613287427" name="All files">
+    <metrics statements="108" coveredstatements="94" conditionals="64" coveredconditionals="39" methods="42" coveredmethods="29" elements="214" coveredelements="162" complexity="0" loc="108" ncloc="108" packages="3" files="9" classes="9">
       <package name="components">
-        <metrics statements="49" coveredstatements="39" conditionals="42" coveredconditionals="22" methods="26" coveredmethods="16"/>
+        <metrics statements="48" coveredstatements="38" conditionals="42" coveredconditionals="22" methods="26" coveredmethods="16"/>
         <file name="App.js" path="/Users/philberryman/workspace/totally-money/client/src/components/App.js">
           <metrics statements="14" coveredstatements="11" conditionals="0" coveredconditionals="0" methods="8" coveredmethods="5"/>
           <line num="13" count="2" type="stmt"/>
@@ -36,12 +36,11 @@
           <line num="71" count="1" type="stmt"/>
         </file>
         <file name="Decision.js" path="/Users/philberryman/workspace/totally-money/client/src/components/Decision.js">
-          <metrics statements="5" coveredstatements="4" conditionals="6" coveredconditionals="4" methods="1" coveredmethods="1"/>
+          <metrics statements="4" coveredstatements="3" conditionals="6" coveredconditionals="4" methods="1" coveredmethods="1"/>
           <line num="5" count="3" type="stmt"/>
-          <line num="6" count="1" type="stmt"/>
-          <line num="7" count="1" type="cond" truecount="1" falsecount="1"/>
-          <line num="8" count="1" type="stmt"/>
-          <line num="31" count="0" type="stmt"/>
+          <line num="6" count="1" type="cond" truecount="1" falsecount="1"/>
+          <line num="7" count="1" type="stmt"/>
+          <line num="30" count="0" type="stmt"/>
         </file>
         <file name="QualificationForm.js" path="/Users/philberryman/workspace/totally-money/client/src/components/QualificationForm.js">
           <metrics statements="8" coveredstatements="7" conditionals="6" coveredconditionals="3" methods="5" coveredmethods="3"/>
@@ -74,7 +73,7 @@
         <file name="appData.js" path="/Users/philberryman/workspace/totally-money/client/src/lib/appData.js">
           <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
           <line num="1" count="3" type="stmt"/>
-          <line num="47" count="3" type="stmt"/>
+          <line num="36" count="3" type="stmt"/>
         </file>
         <file name="cards.js" path="/Users/philberryman/workspace/totally-money/client/src/lib/cards.js">
           <metrics statements="26" coveredstatements="25" conditionals="14" coveredconditionals="12" methods="9" coveredmethods="9"/>

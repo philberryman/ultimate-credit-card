@@ -3,7 +3,6 @@ import React from "react";
 import { FormGrid } from "../styles/styles";
 
 export const Decision = ({ decision }) => {
-  console.log(decision);
   if (decision) {
     return (
       <FormGrid>

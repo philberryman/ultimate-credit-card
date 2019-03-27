@@ -31,17 +31,6 @@ export const standardCards = [
   //   creditAvailable: 3000,
   //   criteria: [{ name: "annualIncome", value: 50000, type: "atLeast" }],
   // },
-  // {
-  //   name: "MEGA card",
-  //   apr: 15,
-  //   balanceTransferOfferMonths: 12,
-  //   purchaseOfferMonths: 6,
-  //   creditAvailable: 10000,
-  //   criteria: [
-  //     { name: "annualIncome", value: 50000, type: "atLeast" },
-  //     { name: "employmentStatus", value: "student", type: "matches" },
-  //   ],
-  // },
 ];
 
 export const testPeople = {
